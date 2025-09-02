@@ -1,0 +1,134 @@
+---
+layout: english
+title: "Blog - Brandon Lewis Portfolio"
+lang: en
+---
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="mb-4">Blog</h1>
+    <p class="lead">Insights and perspectives on AI solutions for energy transition, ML engineering, and international collaboration.</p>
+  </div>
+</div>
+
+<div class="row mb-4">
+  <div class="col-lg-12">
+    <div class="btn-group" role="group" aria-label="Blog categories">
+      <button type="button" class="btn btn-outline-primary active" data-category="all">All</button>
+      <button type="button" class="btn btn-outline-primary" data-category="energy">Energy</button>
+      <button type="button" class="btn btn-outline-primary" data-category="ml-engineering">ML Engineering</button>
+      <button type="button" class="btn btn-outline-primary" data-category="career">Career</button>
+      <button type="button" class="btn btn-outline-primary" data-category="international">International</button>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="blog-posts">
+  <div class="col-lg-6 mb-4" data-categories="energy,ml-engineering">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <small class="text-muted">February 15, 2025</small>
+          <span class="badge bg-primary">Energy</span>
+        </div>
+        <h5 class="card-title">Grid Stability Through Machine Learning</h5>
+        <p class="card-text">Architecture and implementation of ML systems for intelligent power grid stabilization and optimization.</p>
+        <div class="d-flex flex-wrap gap-1 mb-3">
+          <span class="badge bg-secondary">System Architecture</span>
+          <span class="badge bg-secondary">Real-time ML</span>
+          <span class="badge bg-secondary">Grid Optimization</span>
+        </div>
+        <a href="/blog/en/2025-02-15-grid-stability-ml" class="btn btn-primary">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 mb-4" data-categories="ml-engineering,career">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <small class="text-muted">March 1, 2025</small>
+          <span class="badge bg-success">ML Engineering</span>
+        </div>
+        <h5 class="card-title">Production ML Engineering: From Prototype to Scale</h5>
+        <p class="card-text">Strategies for successfully transitioning ML prototypes into production-grade systems with real-world impact.</p>
+        <div class="d-flex flex-wrap gap-1 mb-3">
+          <span class="badge bg-secondary">MLOps</span>
+          <span class="badge bg-secondary">Deployment</span>
+          <span class="badge bg-secondary">Scaling</span>
+        </div>
+        <a href="/blog/en/2025-03-01-production-ml-engineering" class="btn btn-primary">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 mb-4" data-categories="international,career">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <small class="text-muted">March 15, 2025</small>
+          <span class="bidge bg-info">International</span>
+        </div>
+        <h5 class="card-title">Career Transition: From Process Automation to Data Science Leadership</h5>
+        <p class="card-text">Personal insights and lessons learned from transitioning between technical domains and international markets.</p>
+        <div class="d-flex flex-wrap gap-1 mb-3">
+          <span class="badge bg-secondary">Career Growth</span>
+          <span class="badge bg-secondary">Technical Leadership</span>
+          <span class="badge bg-secondary">International Experience</span>
+        </div>
+        <a href="/blog/en/2025-03-15-career-transition" class="btn btn-primary">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 mb-4" data-categories="ml-engineering,energy">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <small class="text-muted">April 1, 2025</small>
+          <span class="badge bg-warning">ML Engineering</span>
+        </div>
+        <h5 class="card-title">LSTM Implementation for Time-Series Forecasting: Lessons Learned</h5>
+        <p class="card-text">Deep dive into LSTM architecture decisions, hyperparameter tuning, and production deployment challenges.</p>
+        <div class="d-flex flex-wrap gap-1 mb-3">
+          <span class="badge bg-secondary">LSTM</span>
+          <span class="badge bg-secondary">PyTorch</span>
+          <span class="badge bg-secondary">Time-Series</span>
+        </div>
+        <a href="/blog/en/2025-04-01-lstm-implementation" class="btn btn-primary">Read More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-lg-12 text-center">
+    <a href="/blog" class="btn btn-outline-primary">Deutsche Blog-Beiträge</a>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const categoryButtons = document.querySelectorAll('[data-category]');
+  const blogPosts = document.querySelectorAll('#blog-posts > div');
+
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const category = this.getAttribute('data-category');
+      
+      // Update active button
+      categoryButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Filter posts
+      blogPosts.forEach(post => {
+        const postCategories = post.getAttribute('data-categories').split(',');
+        if (category === 'all' || postCategories.includes(category)) {
+          post.style.display = 'block';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
