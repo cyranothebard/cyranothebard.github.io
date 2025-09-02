@@ -1,0 +1,26 @@
+title: "Brandon Lewis - Data Science Portfolio"
+description: "Senior Data Scientist specializing in AI/ML for energy systems and healthcare analytics"
+url: "https://cyranothebard.github.io"
+baseurl: ""
+
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-polyglot
+
+languages: ["de", "en"]
+default_lang: "de"
+exclude_from_localization: ["js", "css", "assets", "_sass"]
+parallel_localization: false
+
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+author: "Brandon Lewis"
+twitter_username: ""
+github_username: "cyranothebard"
+linkedin_username: "brandon-lewis-data-science"

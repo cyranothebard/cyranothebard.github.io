@@ -1,0 +1,13 @@
+# OS/IDE
+.DS_Store
+*.log
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+
+# Node (if used for tooling)
+node_modules/
