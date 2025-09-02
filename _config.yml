@@ -1,7 +1,10 @@
-title: "Brandon Lewis - Data Science Portfolio"
-description: "Senior Data Scientist specializing in AI/ML for energy systems and healthcare analytics"
+title: "Brandon Lewis - Senior Data Scientist Portfolio | DACH Region"
+description: "Senior Data Scientist mit 6+ Jahren Erfahrung in ML-Engineering, Energiesystemen und Healthcare Analytics. Spezialisiert auf Zeitreihenprognosen und nachhaltige KI-Lösungen für den deutschen Markt."
 url: "https://cyranothebard.github.io"
 baseurl: ""
+
+# SEO and Meta
+keywords: "Data Scientist, Machine Learning Engineer, KI-Entwickler, Energiesysteme, Healthcare Analytics, Zeitreihenprognosen, DACH Region, Deutschland, Schweiz, Österreich"
 
 markdown: kramdown
 highlighter: rouge

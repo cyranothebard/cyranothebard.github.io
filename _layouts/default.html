@@ -1,12 +1,69 @@
 <!doctype html>
-<html lang="{{ page.lang | default: site.default_lang }}">
+<html lang="{{ page.lang | default: 'de' }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title | default: site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
+    <meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
+    <meta name="author" content="{{ site.author }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="twitter:title" content="{{ page.title | default: site.title }}">
+    <meta property="twitter:description" content="{{ page.description | default: site.description }}">
+    <meta property="twitter:image" content="{{ site.url }}/assets/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style">
+    
+    <!-- Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Brandon Lewis",
+      "jobTitle": "Senior Data Scientist",
+      "description": "{{ page.description | default: site.description }}",
+      "url": "{{ site.url }}",
+      "sameAs": [
+        "https://github.com/{{ site.github_username }}",
+        "https://linkedin.com/in/{{ site.linkedin_username }}"
+      ],
+      "knowsAbout": [
+        "Machine Learning",
+        "Data Science",
+        "Energy Systems",
+        "Healthcare Analytics",
+        "Time Series Forecasting",
+        "AI/ML Engineering"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lindau am Bodensee",
+        "addressCountry": "DE"
+      }
+    }
+    </script>
   </head>
   <body>
     {% include nav.html %}
@@ -15,7 +72,44 @@
         {{ content }}
       </div>
     </main>
+    
+    <!-- Footer -->
+    <footer class="footer mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Brandon Lewis</h5>
+            <p>Senior Data Scientist specializing in sustainable AI solutions for energy and healthcare systems.</p>
+            <div class="social-links">
+              <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="/projekte">Projekte</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/ueber-mich">Über mich</a></li>
+              <li><a href="/assets/docs/lebenslauf-de.html">Lebenslauf</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4">
+        <div class="text-center">
+          <p>&copy; {{ 'now' | date: "%Y" }} Brandon Lewis. Alle Rechte vorbehalten.</p>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/analytics.js' | relative_url }}"></script>
   </body>
 </html>
