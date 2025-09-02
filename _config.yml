@@ -8,17 +8,6 @@ highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-polyglot
-
-languages: ["de", "en"]
-default_lang: "de"
-exclude_from_localization: ["js", "css", "assets", "_sass"]
-parallel_localization: false
-
-collections:
-  projects:
-    output: true
-    permalink: /:collection/:name/
 
 author: "Brandon Lewis"
 twitter_username: ""
