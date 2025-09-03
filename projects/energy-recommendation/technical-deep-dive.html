@@ -38,3 +38,48 @@ lang: en
 </ul>
 
 <p class="mt-4"><a href="/projects/energy-recommendation/" class="btn btn-outline-primary">Back to overview</a></p>
+
+<h5 class="mt-4">Problem Framing</h5>
+<p>Short-term load forecasting and recommendation generation to reduce curtailment and improve renewable integration in smart grids. Objective: accurate horizon-H forecasts and explainable recommendations under policy and operational constraints.</p>
+
+<h5>Data & Features</h5>
+<ul>
+  <li>Signals: historical load (15–60 min cadence), weather (temperature, irradiance, wind speed), calendar (holiday, weekday/weekend), region identifiers.</li>
+  <li>Preprocessing: time alignment, missing-value imputation, outlier clipping, per-series z-normalization, sliding windows for supervised learning.</li>
+  <li>Feature set: lagged loads, rolling stats, exogenous weather forecasts, cyclical encodings (hour-of-day, day-of-week), seasonal indicators.</li>
+</ul>
+
+<h5>Modeling</h5>
+<ul>
+  <li>Core: sequence-to-sequence LSTM with multi-horizon outputs; dropout and weight decay; Lookback L and horizon H tuned via CV.</li>
+  <li>Baselines: ARIMA/Prophet and gradient boosting (XGBoost/LightGBM) for benchmarking and ensembling.</li>
+  <li>Training: early stopping on validation RMSE/MAPE; stratified time-based CV; mixed precision for faster epochs.</li>
+</ul>
+
+<h5>Evaluation</h5>
+<ul>
+  <li>Metrics: RMSE, MAE, MAPE; calibration plots; residual diagnostics by hour and temperature bands.</li>
+  <li>Robustness: stress tests with synthetic weather perturbations; ablation shows +X% error without irradiance features.</li>
+  <li>Results: LSTM improves RMSE vs baselines at all horizons; stable under mild covariate shift.</li>
+</ul>
+
+<h5>Serving & MLOps</h5>
+<ul>
+  <li>Packaging: model artifacts versioned in registry; Dockerized FastAPI service exposes /forecast and /explain endpoints.</li>
+  <li>Orchestration: daily retraining job; feature freshness checks; drift detection with alerts.</li>
+  <li>Observability: request logs, latency SLOs, forecast error dashboards; canary deployments for updates.</li>
+</ul>
+
+<h5>Explainability</h5>
+<ul>
+  <li>Global: SHAP for feature importance across horizons.</li>
+  <li>Local: attention/gradient-based attributions for scenario-specific recommendations.</li>
+</ul>
+
+<h5>Recommendation Logic</h5>
+<ul>
+  <li>Rules combine forecasts with policy constraints to suggest actions (load shifting, storage dispatch, DR events).</li>
+  <li>Safe-guards: confidence thresholds and human-in-the-loop approval for operational changes.</li>
+</ul>
+
+<p class="small text-muted mt-3">Source: Final report insights for the smart grid energy management project [link](https://docs.google.com/document/d/1drQi-2SAQqYeI9UvRmgKSdf-ZcRF5dTPt7z5NayEhRc/edit?tab=t.lo60klntyz4q#heading=h.toasgthfs9co).</p>

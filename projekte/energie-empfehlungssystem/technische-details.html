@@ -110,3 +110,48 @@ lang: de
     </div>
   </div>
 </div>
+
+<h5 class="mt-4">Problemdefinition</h5>
+<p>Kurzfristige Lastprognosen und Empfehlungsgenerierung zur Reduktion von Abregelungen und zur besseren Integration erneuerbarer Energien im Smart Grid. Ziel: präzise Mehrhorizont-Prognosen und erklärbare Empfehlungen unter regulatorischen und betrieblichen Randbedingungen.</p>
+
+<h5>Daten & Features</h5>
+<ul>
+  <li>Signale: historische Last (15–60 Min), Wetter (Temperatur, Globalstrahlung, Wind), Kalender (Feiertage, Wochentag/Wochenende), Regions-IDs.</li>
+  <li>Vorverarbeitung: Zeitausrichtung, Imputation fehlender Werte, Ausreißerbegrenzung, z-Normalisierung pro Serie, Sliding-Window-Generierung.</li>
+  <li>Feature-Set: verzögerte Lastwerte, rollierende Statistiken, exogene Wetterprognosen, zyklische Kodierungen (Stunde, Wochentag), Saisonalitätsindikatoren.</li>
+</ul>
+
+<h5>Modellierung</h5>
+<ul>
+  <li>Kern: Seq2Seq-LSTM mit Multi-Horizont-Outputs; Dropout und Weight Decay; Lookback L und Horizont H via CV abgestimmt.</li>
+  <li>Baselines: ARIMA/Prophet und Gradient Boosting (XGBoost/LightGBM) als Benchmarks und mögliche Ensembling-Komponenten.</li>
+  <li>Training: Early Stopping auf Validierungs-RMSE/MAPE; zeitbasierte, geschichtete CV; Mixed Precision für schnellere Epochen.</li>
+</ul>
+
+<h5>Evaluation</h5>
+<ul>
+  <li>Metriken: RMSE, MAE, MAPE; Kalibrierungsplots; Residualdiagnostik nach Stunde und Temperaturbändern.</li>
+  <li>Robustheit: Stresstests mit synthetischen Wetterperturbationen; Ablationen zeigen +X% Fehler ohne Strahlungsfeatures.</li>
+  <li>Ergebnisse: LSTM verbessert RMSE gegenüber Baselines über alle Horizonte; stabil bei mildem Kovariaten-Shift.</li>
+</ul>
+
+<h5>Serving & MLOps</h5>
+<ul>
+  <li>Packaging: Modellartefakte versioniert; Dockerisierte FastAPI mit /forecast- und /explain-Endpunkten.</li>
+  <li>Orchestrierung: tägliches Retraining; Feature-Frische-Prüfungen; Drift-Detektion mit Alerts.</li>
+  <li>Observability: Request-Logs, Latenz-SLOs, Prognosefehler-Dashboards; Canary-Deployments für Updates.</li>
+</ul>
+
+<h5>Erklärbarkeit</h5>
+<ul>
+  <li>Global: SHAP für Feature-Importance je Horizont.</li>
+  <li>Lokal: aufgabenspezifische Attributionen (z. B. Attention/Gradienten) für Szenarien.</li>
+</ul>
+
+<h5>Empfehlungslogik</h5>
+<ul>
+  <li>Regelwerk kombiniert Prognosen mit Richtlinien, um Maßnahmen (Lastverschiebung, Speichereinsatz, Demand Response) vorzuschlagen.</li>
+  <li>Sicherheitsmechanismen: Konfidenzschwellen und Human-in-the-Loop-Freigaben für operative Änderungen.</li>
+</ul>
+
+<p class="small text-muted mt-3">Quelle: Abschlussbericht zum Smart-Grid-Energiemanagementprojekt <a href="https://docs.google.com/document/d/1drQi-2SAQqYeI9UvRmgKSdf-ZcRF5dTPt7z5NayEhRc/edit?tab=t.lo60klntyz4q#heading=h.toasgthfs9co">Google Doc</a>.</p>
