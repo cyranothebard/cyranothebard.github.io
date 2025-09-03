@@ -10,12 +10,30 @@ lang: en
 
     <div class="mb-4">
       <h5>Executive Summary</h5>
-      <p>Built a modular, production-ready recommendation system that forecasts short-term demand and coordinates building-level reductions to support grid stability. The system processes 8,000+ buildings in under 30 seconds, maintains a validated 5.4% grid reduction capability (within 2–7% industry benchmarks), and enables parallel team development through standardized interfaces.</p>
+      <p><strong>EXECUTIVE SUMMARY</strong></p>
+      <p>This project successfully developed and validated a production-ready energy recommendation engine that coordinates building-level energy usage to maintain grid stability during extreme weather. Leveraging a three-stage machine learning pipeline, the system achieved a 5.4% aggregate grid demand reduction, falling within the 2–7% industry benchmark for commercial demand response programs (Federal Energy Regulatory Commission [FERC], 2024).</p>
+      <p>The business impact is significant: for example, in a metropolitan area like Seattle, the engine we created could prevent blackouts and defer infrastructure costs, generating an estimated $2–5 million in annual value. Technically, the system forecasts 24-hour demand for over 8,000 buildings in under 30 seconds using a multi-output LSTM neural network integrated with a portfolio optimization algorithm that accounts for realistic building compliance (36.3% average acceptance).</p>
+      <p>Strategically, our approach demonstrates the application of advanced distributed computing and deep learning to critical infrastructure challenges. It is both academically rigorous and commercially viable, positioning the solution to capitalize on the rapidly expanding demand response market, projected at 14.3% CAGR and $3.6 billion by 2034 (Future Market Insights, 2025).</p>
     </div>
 
     <div class="mb-4">
       <h5>Problem Statement & Business Context</h5>
-      <p>Utilities face rising volatility in demand patterns. Blackout prevention and demand coordination at city scale can deliver $2–5M in annual value via avoided outages and deferred infrastructure spend. We designed a three-stage ML pipeline—feature engineering, compliance prediction, and portfolio optimization—to deliver actionable, policy-aware recommendations aligned with grid operations.</p>
+      <p><strong>PROBLEM STATEMENT &amp; BUSINESS CONTEXT</strong></p>
+      <p><strong>Grid Stability Challenge:</strong> Power grids are increasingly unstable as demand grows more complex. Commercial buildings make up about 27.8% of demand response participation, with commercial electricity use rising 2.6% annually (Energy Information Administration, 2024). During extreme weather times, many simultaneous spikes across thousands of buildings can trigger costly blackouts.</p>
+      <p><strong>Business Need:</strong> Demand response programs can reduce over 6 MW—enough to power ~1,500 homes during peak periods (Austin Energy, 2025). Despite this, current methods rely on generic recommendations, lacking building-specific compliance insights and coordinated portfolio optimization.</p>
+      <p><strong>Market Opportunity:</strong> The demand response market is growing rapidly, with the services segment projected at 14.3% CAGR from 2025–2035, fueled by rising demand for real-time monitoring, automation, and optimization (Future Market Insights, 2025). Our system directly addresses a key gap: existing solutions cannot learn from building response patterns or optimize recommendations across portfolios.</p>
+    </div>
+
+    <div class="mb-4">
+      <h5>Limitations of Traditional Approaches &amp; Technical Innovation Requirements</h5>
+      <p>Conventional grid management relies on reactive, rule-based systems that issue identical recommendations to all buildings. Research shows that the effectiveness of such demand response initiatives varies widely, from no impact to over 50% load reduction, which highlights significant untapped optimization potential (Taylor &amp; Francis Online, 2024).</p>
+      <p>To address these limitations, our approach introduces four key innovations:</p>
+      <ul>
+        <li><strong>Forecast aggregate demand</strong> across diverse building types during extreme weather</li>
+        <li><strong>Model compliance uncertainty</strong> based on realistic operational constraints</li>
+        <li><strong>Optimize portfolio coordination</strong> to maximize grid impact while respecting individual building capabilities</li>
+        <li><strong>Scale to production-level requirements</strong> with real-time processing for thousands of buildings</li>
+      </ul>
     </div>
 
     <div class="mb-4">
