@@ -1,0 +1,85 @@
+---
+layout: default
+title: "Herzinsuffizienz Wiedereinweisung & Ressourcenoptimierung"
+lang: de
+---
+<div class="row">
+  <div class="col-lg-8">
+    <h1 class="mb-3">Herzinsuffizienz: Wiedereinweisung & Ressourcenoptimierung</h1>
+    <p class="lead">Vorhersage des 30-Tage-Wiedaufnahmerisikos und Prognose des Pflegepersonaleinsatzes zur Verbesserung der Versorgung und Kostensenkung.</p>
+
+    <div class="mb-3">
+      <h5>Projektübersicht</h5>
+      <p>Zweiteiliges System: (1) Klassifikation des Wiedereinweisungsrisikos bei Herzinsuffizienz, (2) Ableitung des Pflegeaufwands (Pflegestunden) für eine bedarfsgerechte Personalplanung. Der Pipeline-Ansatz ist für den Gesundheitsbereich geeignet.</p>
+    </div>
+
+    <div class="mb-3">
+      <h5>Auf einen Blick</h5>
+      <div class="row g-3">
+        <div class="col-6 col-md-4">
+          <div class="border rounded p-3 text-center">
+            <div class="small text-muted">Ziel</div>
+            <div class="h6 mb-0">30 Tage</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="border rounded p-3 text-center">
+            <div class="small text-muted">Modelle</div>
+            <div class="h6 mb-0">LR / RF / XGB</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="border rounded p-3 text-center">
+            <div class="small text-muted">Ressourcen-KPI</div>
+            <div class="h6 mb-0">Pflegestunden</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <ul class="nav nav-tabs" id="lensTabsHfDe" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="tech-tab" data-bs-toggle="tab" data-bs-target="#tech" type="button" role="tab">Technisch</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="mgmt-tab" data-bs-toggle="tab" data-bs-target="#mgmt" type="button" role="tab">Projektführung</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="prod-tab" data-bs-toggle="tab" data-bs-target="#prod" type="button" role="tab">Produkt</button>
+        </li>
+      </ul>
+      <div class="tab-content border border-top-0 p-3" id="lensTabsContent">
+        <div class="tab-pane fade show active" id="tech" role="tabpanel">
+          <p class="mb-2">MIMIC-IV Kohortierung, Feature-Engineering und Klassifikationsmodelle (LR/RF/XGB) für 30-Tage-Wiedereinweisungen; Regression für Pflegeaufwand.</p>
+          <a href="/projekte/heart-failure-readmission/technisch.html" class="btn btn-sm btn-primary">Mehr lesen</a>
+        </div>
+        <div class="tab-pane fade" id="mgmt" role="tabpanel">
+          <p class="mb-2">Phasenplanung mit Data Governance, Risikomanagement und Stakeholder-Abstimmung für die klinische Einführung.</p>
+          <a href="/projekte/heart-failure-readmission/projektfuehrung.html" class="btn btn-sm btn-primary">Mehr lesen</a>
+        </div>
+        <div class="tab-pane fade" id="prod" role="tabpanel">
+          <p class="mb-2">Personas, KPIs (Wiedereinweisungsreduktion, Ressourcennutzung) und Roadmap vom Pilot zur Skalierung.</p>
+          <a href="/projekte/heart-failure-readmission/produktstrategie.html" class="btn btn-sm btn-primary">Mehr lesen</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="small text-muted">
+      Referenzen: <a href="https://github.com/cyranothebard/heart_failure_readmission">GitHub-Repo</a> · <a href="https://docs.google.com/presentation/d/1_dl7fGjbTNhiWKFbtGORN2V61KJQjh87kfE1NttkUAw/edit?slide=id.gcb9a0b074_1_0#slide=id.gcb9a0b074_1_0">Präsentation</a>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Schnellzugriff</h5>
+        <div class="d-grid gap-2">
+          <a href="/projects/heart-failure-readmission/" class="btn btn-outline-secondary">EN Overview</a>
+          <a href="https://github.com/cyranothebard/heart_failure_readmission" class="btn btn-outline-primary">Repository</a>
+          <a href="https://docs.google.com/presentation/d/1_dl7fGjbTNhiWKFbtGORN2V61KJQjh87kfE1NttkUAw/edit?slide=id.gcb9a0b074_1_0#slide=id.gcb9a0b074_1_0" class="btn btn-outline-primary">Präsentation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

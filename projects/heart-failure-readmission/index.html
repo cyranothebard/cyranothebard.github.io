@@ -1,0 +1,85 @@
+---
+layout: english
+title: "Heart Failure Readmission & Resource Optimization"
+lang: en
+---
+<div class="row">
+  <div class="col-lg-8">
+    <h1 class="mb-3">Heart Failure Readmission & Resource Optimization</h1>
+    <p class="lead">Predict 30-day readmission risk and forecast staffing resources to improve outcomes and reduce cost.</p>
+
+    <div class="mb-3">
+      <h5>Project Overview</h5>
+      <p>We build a two-part solution: (1) readmission risk prediction for heart failure patients, and (2) downstream staffing resource forecasting to align nursing hours with patient needs. The pipeline follows a healthcare-ready approach with clear separation of data prep, modeling, and reporting.</p>
+    </div>
+
+    <div class="mb-3">
+      <h5>At a glance</h5>
+      <div class="row g-3">
+        <div class="col-6 col-md-4">
+          <div class="border rounded p-3 text-center">
+            <div class="small text-muted">Readmission target</div>
+            <div class="h6 mb-0">30 days</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="border rounded p-3 text-center">
+            <div class="small text-muted">Primary models</div>
+            <div class="h6 mb-0">LR / RF / XGB</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="border rounded p-3 text-center">
+            <div class="small text-muted">Resource KPI</div>
+            <div class="h6 mb-0">Nursing hours</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <ul class="nav nav-tabs" id="lensTabsHfEn" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="tech-tab" data-bs-toggle="tab" data-bs-target="#tech" type="button" role="tab">Technical</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="mgmt-tab" data-bs-toggle="tab" data-bs-target="#mgmt" type="button" role="tab">Management</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="prod-tab" data-bs-toggle="tab" data-bs-target="#prod" type="button" role="tab">Product</button>
+        </li>
+      </ul>
+      <div class="tab-content border border-top-0 p-3" id="lensTabsContent">
+        <div class="tab-pane fade show active" id="tech" role="tabpanel">
+          <p class="mb-2">MIMIC-IV cohorting, feature extraction, and classification models (LR/RF/XGB) for 30-day readmission; regression for nursing hours estimation.</p>
+          <a href="/projects/heart-failure-readmission/technical.html" class="btn btn-sm btn-primary">Read more</a>
+        </div>
+        <div class="tab-pane fade" id="mgmt" role="tabpanel">
+          <p class="mb-2">Phased delivery with data governance, risk mitigation, and clinical stakeholder alignment for decision support.</p>
+          <a href="/projects/heart-failure-readmission/management.html" class="btn btn-sm btn-primary">Read more</a>
+        </div>
+        <div class="tab-pane fade" id="prod" role="tabpanel">
+          <p class="mb-2">Personas, KPIs (readmission reduction, staffing utilization), and roadmap for pilot-to-scale deployment.</p>
+          <a href="/projects/heart-failure-readmission/product.html" class="btn btn-sm btn-primary">Read more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="small text-muted">
+      References: <a href="https://github.com/cyranothebard/heart_failure_readmission">GitHub repo</a> · <a href="https://docs.google.com/presentation/d/1_dl7fGjbTNhiWKFbtGORN2V61KJQjh87kfE1NttkUAw/edit?slide=id.gcb9a0b074_1_0#slide=id.gcb9a0b074_1_0">Slide deck</a>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Quick Links</h5>
+        <div class="d-grid gap-2">
+          <a href="/projekte/heart-failure-readmission/" class="btn btn-outline-secondary">DE Overview</a>
+          <a href="https://github.com/cyranothebard/heart_failure_readmission" class="btn btn-outline-primary">Repository</a>
+          <a href="https://docs.google.com/presentation/d/1_dl7fGjbTNhiWKFbtGORN2V61KJQjh87kfE1NttkUAw/edit?slide=id.gcb9a0b074_1_0#slide=id.gcb9a0b074_1_0" class="btn btn-outline-primary">Slide Deck</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
