@@ -9,8 +9,13 @@ lang: en
     <p class="lead">An intelligent recommendation system for sustainable energy decisions, powered by modern ML.</p>
 
     <div class="mb-4">
-      <h5>Project Overview</h5>
-      <p>We built a scalable energy recommendation system combining LSTM-based time-series forecasting with a modular architecture. It improves grid operations via short-term load forecasts and policy-aware recommendations.</p>
+      <h5>Executive Summary</h5>
+      <p>Built a modular, production-ready recommendation system that forecasts short-term demand and coordinates building-level reductions to support grid stability. The system processes 8,000+ buildings in under 30 seconds, maintains a validated 5.4% grid reduction capability (within 2–7% industry benchmarks), and enables parallel team development through standardized interfaces.</p>
+    </div>
+
+    <div class="mb-4">
+      <h5>Problem Statement & Business Context</h5>
+      <p>Utilities face rising volatility in demand patterns. Blackout prevention and demand coordination at city scale can deliver $2–5M in annual value via avoided outages and deferred infrastructure spend. We designed a three-stage ML pipeline—feature engineering, compliance prediction, and portfolio optimization—to deliver actionable, policy-aware recommendations aligned with grid operations.</p>
     </div>
 
     <div class="mb-4">
@@ -18,38 +23,38 @@ lang: en
       <div class="row g-3">
         <div class="col-6 col-md-4">
           <div class="border rounded p-3 text-center">
-            <div class="small text-muted">RMSE (val)</div>
-            <div class="h5 mb-0">↓ vs baseline</div>
+            <div class="small text-muted">Grid impact</div>
+            <div class="h5 mb-0">5.4% reduction</div>
           </div>
         </div>
         <div class="col-6 col-md-4">
           <div class="border rounded p-3 text-center">
-            <div class="small text-muted">MAPE (val)</div>
-            <div class="h5 mb-0">Stable</div>
+            <div class="small text-muted">Processing time</div>
+            <div class="h5 mb-0">< 30s / 8,000+ bldgs</div>
           </div>
         </div>
         <div class="col-6 col-md-4">
           <div class="border rounded p-3 text-center">
-            <div class="small text-muted">API uptime</div>
-            <div class="h5 mb-0">≥ 99.7%</div>
+            <div class="small text-muted">Forecast horizon</div>
+            <div class="h5 mb-0">24h (48h lookback)</div>
           </div>
         </div>
         <div class="col-6 col-md-4">
           <div class="border rounded p-3 text-center">
-            <div class="small text-muted">P95 latency</div>
+            <div class="small text-muted">Cohorts</div>
+            <div class="h5 mb-0">15 building types</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="border rounded p-3 text-center">
+            <div class="small text-muted">Reliability</div>
+            <div class="h5 mb-0">≥ 99.7% uptime</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="border rounded p-3 text-center">
+            <div class="small text-muted">Latency (P95)</div>
             <div class="h5 mb-0">≤ 200 ms</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="border rounded p-3 text-center">
-            <div class="small text-muted">Regions</div>
-            <div class="h5 mb-0">Pilot → Multi-region</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="border rounded p-3 text-center">
-            <div class="small text-muted">Adoption</div>
-            <div class="h5 mb-0">Analyst usage ↑</div>
           </div>
         </div>
       </div>
