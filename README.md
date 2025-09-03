@@ -25,3 +25,5 @@ bundle exec jekyll serve
 - Language switching via simple links (`/` ⇄ `/en`)
 - Analytics and advanced SEO deferred to keep maintenance low
 
+
+Last rebuild trigger: 2025-09-03 11:35:26 CEST
