@@ -9,7 +9,8 @@ lang: en
     <p class="lead">An intelligent recommendation system for sustainable energy decisions, powered by modern ML.</p>
 
     <figure class="mb-4 text-center">
-      <img src="{{ '/assets/img/energy-recommendation/energy-recommender-architecture.png' | relative_url }}" class="img-fluid d-block mx-auto" alt="Solution architecture diagram" />
+      <!-- TODO: Replace with high-resolution image at /assets/img/energy-recommendation/energy-recommender-architecture@2x.png -->
+      <img src="{{ '/assets/img/energy-recommendation/energy-recommender-architecture.png' | relative_url }}" srcset="{{ '/assets/img/energy-recommendation/energy-recommender-architecture.png' | relative_url }} 1x, {{ '/assets/img/energy-recommendation/energy-recommender-architecture@2x.png' | relative_url }} 2x" sizes="(min-width: 992px) 900px, 100vw" class="img-fluid d-block mx-auto" alt="Solution architecture diagram" />
       <figcaption class="mt-2 small text-muted">Figure 1: Solution architecture. LSTM demand forecasting and grid strain prediction combine with compliance modeling to feed portfolio optimization recommendations that are served to the operator dashboard interface.</figcaption>
     </figure>
 
@@ -119,7 +120,8 @@ lang: en
       <p><strong>Extreme Weather Response</strong>: Heat wave scenarios increase prediction errors to 23.4% MAPE on average, while cold snap scenarios reach 28.4% MAPE. This performance degradation is expected given the unprecedented nature of extreme weather events and aligns with literature establishing 20-25% MAPE as production-viable for challenging forecasting conditions.</p>
 
       <figure class="mb-3 text-center">
-        <img src="{{ '/assets/img/energy-recommendation/energy-recommender-performance-analysis.png' | relative_url }}" class="img-fluid d-block mx-auto" alt="System performance summary graphic" />
+        <!-- TODO: Replace with high-resolution image at /assets/img/energy-recommendation/energy-recommender-performance-analysis@2x.png -->
+        <img src="{{ '/assets/img/energy-recommendation/energy-recommender-performance-analysis.png' | relative_url }}" srcset="{{ '/assets/img/energy-recommendation/energy-recommender-performance-analysis.png' | relative_url }} 1x, {{ '/assets/img/energy-recommendation/energy-recommender-performance-analysis@2x.png' | relative_url }} 2x" sizes="(min-width: 992px) 900px, 100vw" class="img-fluid d-block mx-auto" alt="System performance summary graphic" />
         <figcaption class="mt-2 small text-muted">Figure 3: <strong>System Performance Summary.</strong> For a simulated heat wave, the LSTM forecasting system achieved a 145 MW peak demand reduction (10.7% of baseline peak), preventing grid capacity exceedance and eliminating blackout risk. Through intelligent cohort targeting of 5 building types across 172 MW total capacity with an average 86% compliance rate, the system maintained grid stability while minimizing customer disruption.</figcaption>
       </figure>
 

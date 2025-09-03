@@ -31,7 +31,8 @@ lang: en
     <h6>System Architecture Overview</h6>
     <p>For our project, we developed a three-stage machine learning pipeline that transforms weather forecasts into coordinated building recommendations:</p>
     <figure class="mb-3 text-center">
-      <img src="{{ '/assets/img/energy-recommendation/energy-recommender-architecture.png' | relative_url }}" class="img-fluid d-block mx-auto" alt="Solution architecture diagram" />
+      <!-- TODO: Replace with high-resolution image at /assets/img/energy-recommendation/energy-recommender-architecture@2x.png -->
+      <img src="{{ '/assets/img/energy-recommendation/energy-recommender-architecture.png' | relative_url }}" srcset="{{ '/assets/img/energy-recommendation/energy-recommender-architecture.png' | relative_url }} 1x, {{ '/assets/img/energy-recommendation/energy-recommender-architecture@2x.png' | relative_url }} 2x" sizes="(min-width: 992px) 900px, 100vw" class="img-fluid d-block mx-auto" alt="Solution architecture diagram" />
       <figcaption class="mt-2 small text-muted">Figure 1: Solution architecture. LSTM demand forecasting and grid strain prediction combine with compliance modeling to feed portfolio optimization recommendations that are served to the operator dashboard interface.</figcaption>
     </figure>
 
@@ -61,7 +62,8 @@ lang: en
     <p><strong>Domain-Specific Adaptations:</strong> Weather feature engineering incorporated 48-hour lookback windows to capture thermal lag effects in building energy systems, while building characteristics were embedded to provide context-aware forecasting for each cohort.</p>
 
     <figure class="mb-3 text-center">
-      <img src="{{ '/assets/img/energy-recommendation/energy-recommender-lstm-performance.png' | relative_url }}" class="img-fluid d-block mx-auto" alt="LSTM forecasting performance by cohort and scenario" />
+      <!-- TODO: Replace with high-resolution image at /assets/img/energy-recommendation/energy-recommender-lstm-performance@2x.png -->
+      <img src="{{ '/assets/img/energy-recommendation/energy-recommender-lstm-performance.png' | relative_url }}" srcset="{{ '/assets/img/energy-recommendation/energy-recommender-lstm-performance.png' | relative_url }} 1x, {{ '/assets/img/energy-recommendation/energy-recommender-lstm-performance@2x.png' | relative_url }} 2x" sizes="(min-width: 992px) 900px, 100vw" class="img-fluid d-block mx-auto" alt="LSTM forecasting performance by cohort and scenario" />
       <figcaption class="mt-2 small text-muted">Figure 2: LSTM forecasting performance by cohort and weather scenario. Average RMSE for grid strain scenarios shown, demonstrating system performance within literature-supported ranges. Large buildings tended to have larger errors.</figcaption>
     </figure>
 
