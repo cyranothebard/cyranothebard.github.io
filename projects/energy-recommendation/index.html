@@ -8,6 +8,11 @@ lang: en
     <h1 class="mb-4">Energy Recommendation System</h1>
     <p class="lead">An intelligent recommendation system for sustainable energy decisions, powered by modern ML.</p>
 
+    <figure class="mb-4">
+      <img src="/assets/img/energy-recommender/energy-recommender-architecture.png" class="img-fluid" alt="Solution architecture diagram" />
+      <figcaption class="mt-2 small text-muted">Figure 1: Solution architecture. LSTM demand forecasting and grid strain prediction combine with compliance modeling to feed portfolio optimization recommendations that are served to the operator dashboard interface.</figcaption>
+    </figure>
+
     <div class="mb-4">
       <h5>Executive Summary</h5>
       <p><strong>EXECUTIVE SUMMARY</strong></p>
@@ -107,15 +112,34 @@ lang: en
     </div>
 
     <div class="mb-4">
-      <h5>Results & Performance Analysis</h5>
-      <p>Validated system performance meets operational and business targets. The pipeline processes 8,000+ buildings in under 30 seconds and sustains ≥99.7% uptime with ≤200 ms P95 latency for recommendation retrieval.</p>
+      <h5>Results &amp; Performance Analysis</h5>
+      <h6>Model Performance Validation</h6>
+      <p>Statistical analysis of LSTM performance across weather scenarios reveals consistent forecasting capabilities suitable for grid management applications:</p>
+      <p><strong>Baseline Performance</strong>: Under normal weather conditions, the model achieves 12.4% MAPE averaged across all cohorts, with large commercial buildings showing the most consistent performance (8.7% MAPE) and small retail spaces showing higher variability (18.2% MAPE).</p>
+      <p><strong>Extreme Weather Response</strong>: Heat wave scenarios increase prediction errors to 23.4% MAPE on average, while cold snap scenarios reach 28.4% MAPE. This performance degradation is expected given the unprecedented nature of extreme weather events and aligns with literature establishing 20-25% MAPE as production-viable for challenging forecasting conditions.</p>
+
+      <figure class="mb-3">
+        <img src="/assets/img/energy-recommender/energy-recommender-performance-analysis.png" class="img-fluid" alt="System performance summary graphic" />
+        <figcaption class="mt-2 small text-muted">Figure 3: <strong>System Performance Summary.</strong> For a simulated heat wave, the LSTM forecasting system achieved a 145 MW peak demand reduction (10.7% of baseline peak), preventing grid capacity exceedance and eliminating blackout risk. Through intelligent cohort targeting of 5 building types across 172 MW total capacity with an average 86% compliance rate, the system maintained grid stability while minimizing customer disruption.</figcaption>
+      </figure>
+
+      <p><strong>Cross-Cohort Consistency</strong>: Standard deviation of MAPE across cohorts remains below 6.2% for all scenarios, indicating robust performance across different building types and supporting the portfolio coordination approach.</p>
+
+      <h6>Technical Achievement Enabling Business Value</h6>
+      <p>The 5.4% grid reduction capability results directly from our system's technical innovations:</p>
       <ul>
-        <li><strong>Forecast quality</strong>: Temporal validation prevents leakage; cohort-level error analysis confirms stable performance across 15 building types.</li>
-        <li><strong>Grid impact</strong>: Achieves a 5.4% coordinated reduction, aligned with 2–7% industry benchmarks for demand response.</li>
-        <li><strong>Scalability</strong>: Modular design enables distributed execution paths and parallel team development without integration friction.</li>
-        <li><strong>Reliability</strong>: Input validation and monitoring guard against delayed/missing weather data and model drift.</li>
+        <li><strong>Forecasting Accuracy</strong>: 24-hour advance predictions with 23-28% MAPE enable proactive intervention planning, contrasting with reactive approaches that respond only after strain occurs.</li>
+        <li><strong>Portfolio Coordination</strong>: Multi-cohort architecture allows simultaneous optimization across building types, achieving coordinated response that individual building approaches cannot match.</li>
+        <li><strong>Realistic Compliance Modeling</strong>: The 36.3% average compliance rate incorporates domain expertise about building operational constraints, ensuring recommendations are achievable rather than theoretical.</li>
       </ul>
-      <p>These results translate to meaningful utility value via avoided outages and deferred infrastructure spend, while the architecture supports rapid iteration and safe deployment.</p>
+
+      <p><strong>Grid Impact Validation:</strong> Our three-stage pipeline achieves 5.4% aggregate grid reduction during extreme weather. Scenario analysis shows 4.1% reduction (30% compliance), 5.4% (70%), and 17.5% at full compliance. This aligns with the 2–7% benchmark for commercial demand response programs, with U.S. efforts showing 29 GW savings potential and 1,154 GWh reduced across 10M customers (FERC, 2024).</p>
+
+      <p><strong>Business Impact:</strong> Building on our validated technical performance, economic impact analysis for a metropolitan area similar to Seattle (~4M population, ~150K buildings), this translates to 50–75 MW peak reduction, $2–5M annual blackout prevention, and $10–20M deferred transmission costs over five years.</p>
+
+      <p><strong>Scalability:</strong> Current system processes 8,111 buildings in &lt;30s, scales to 100K+ with distributed computing, and supports multi-region deployment with cohort-specific training.</p>
+
+      <p><strong>Technical Performance:</strong> End-to-end workflow runs in &lt;30s with &lt;50MB memory use, enabling real-time inference. Data pipeline handles 625 features with robust interpolation, validation, and clean integration for parallel development.</p>
     </div>
   </div>
 

@@ -24,67 +24,92 @@ lang: en
 <div class="row">
   <div class="col-lg-8">
     <h1 class="mb-3">Technical Deep-Dive</h1>
-    <p class="lead">LSTM forecasting with weather features, modular data pipeline, and production-ready serving.</p>
+    <p class="lead">Exact content from the final report, adapted to site formatting.</p>
 
-    <h5>Architecture</h5>
-    <ul>
-      <li>Data ingestion (load, weather, calendar); feature engineering and normalization.</li>
-      <li>LSTM with sequence length N, horizon H; early stopping and cross-validation.</li>
-      <li>Model registry and containerized serving via FastAPI; batch and on-demand inference.</li>
-    </ul>
+    <h5>Technical Approach &amp; Architecture</h5>
 
-    <h5>Results</h5>
-    <ul>
-      <li>RMSE improvements vs baseline ARIMA/XGBoost on validation sets.</li>
-      <li>Robustness under synthetic weather perturbations; ablation confirms feature utility.</li>
-    </ul>
+    <h6>System Architecture Overview</h6>
+    <p>For our project, we developed a three-stage machine learning pipeline that transforms weather forecasts into coordinated building recommendations:</p>
+    <figure class="mb-3">
+      <img src="/assets/img/energy-recommender/energy-recommender-architecture.png" class="img-fluid" alt="Solution architecture diagram" />
+      <figcaption class="mt-2 small text-muted">Figure 1: Solution architecture. LSTM demand forecasting and grid strain prediction combine with compliance modeling to feed portfolio optimization recommendations that are served to the operator dashboard interface.</figcaption>
+    </figure>
+
+    <p><strong>Stage 1: Multi-Cohort Demand Forecasting</strong><br/>
+    This stage consisted of a multi-output LSTM neural network predicting 24-hour ahead demand for 15 building cohorts covering &gt;94% of all building stock, a 48-hour weather lookback window (temperature, humidity, wind speed), and is trained on NREL Building Stock Data with Massachusetts climate patterns.</p>
+
+    <p><strong>Stage 2: Compliance Prediction &amp; Modeling</strong><br/>
+    This stage consisted of building-specific compliance probability based on operational characteristics, domain expertise rules accounting for HVAC system types, building operations, and contextual factors, and a realistic 36.3% average compliance rate aligned with industry research.</p>
+
+    <p><strong>Stage 3: Portfolio Optimization</strong><br/>
+    This stage coordinated building selection algorithm maximizing grid impact, included constraint-based optimization respecting individual building capabilities, and multiple scenario planning (conservative 30%, emergency 70% participation).</p>
+
+    <h6>Data Sources &amp; Scale</h6>
+    <p>We used the NREL Commercial Building Stock Data (Massachusetts baseline), covering 8,111 buildings across 13 types and 34 HVAC configurations, with 625 energy characteristics per building. Synthetic weather data modeled Massachusetts climate patterns for extreme-weather testing.</p>
+    <p><strong>Processing Performance:</strong> The system processes 8,000+ buildings in under 30 seconds with &lt;50MB memory usage, supporting cost-effective cloud deployment and Spark-ready distributed scaling.</p>
+
+    <h5 class="mt-4">Neural Network Implementation &amp; Validation</h5>
+    <p>We built a 2-layer multi-output PyTorch LSTM for commercial building energy forecasting. The network includes 15 cohort-specific prediction heads, uses a 48-hour weather lookback with a 24-hour forecast horizon, and incorporates inputs such as temperature, humidity, wind speed, and building characteristics. Training used temporal validation splits to prevent data leakage, a critical step for time-series modeling.</p>
+
+    <h6>Model Development Methodology</h6>
+    <p>The LSTM architecture was selected based on its proven effectiveness for time series forecasting in commercial building applications. Our implementation process followed systematic validation protocols:</p>
+
+    <p><strong>Training Strategy:</strong> The model employed temporal validation splits to prevent data leakage, a critical consideration for time series forecasting where traditional random splits would invalidate results by incorporating future information into training data.</p>
+
+    <p><strong>Architecture Selection:</strong> The 2-layer design with 15 cohort-specific outputs balances model complexity with training efficiency. Each cohort head enables specialized learning for different building types while sharing common temporal pattern recognition in the base layers.</p>
+
+    <p><strong>Domain-Specific Adaptations:</strong> Weather feature engineering incorporated 48-hour lookback windows to capture thermal lag effects in building energy systems, while building characteristics were embedded to provide context-aware forecasting for each cohort.</p>
+
+    <figure class="mb-3">
+      <img src="/assets/img/energy-recommender/energy-recommender-lstm-performance.png" class="img-fluid" alt="LSTM forecasting performance by cohort and scenario" />
+      <figcaption class="mt-2 small text-muted">Figure 2: LSTM forecasting performance by cohort and weather scenario. Average RMSE for grid strain scenarios shown, demonstrating system performance within literature-supported ranges. Large buildings tended to have larger errors.</figcaption>
+    </figure>
+
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th class="text-center">Time Horizon</th>
+            <th class="text-center">Heat Wave - RMSE</th>
+            <th class="text-center">Heat Wave - MAPE</th>
+            <th class="text-center">Cold Snap - RMSE</th>
+            <th class="text-center">Cold Snap - MAPE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center"><strong>1-hour ahead</strong></td>
+            <td class="text-center"><strong>1.86 MW</strong></td>
+            <td class="text-center"><strong>7.29%</strong></td>
+            <td class="text-center"><strong>4.64 MW</strong></td>
+            <td class="text-center"><strong>17.11%</strong></td>
+          </tr>
+          <tr>
+            <td class="text-center"><strong>6-hours ahead</strong></td>
+            <td class="text-center"><strong>10.43 MW</strong></td>
+            <td class="text-center"><strong>29.45%</strong></td>
+            <td class="text-center"><strong>8.79 MW</strong></td>
+            <td class="text-center"><strong>28.40%</strong></td>
+          </tr>
+          <tr>
+            <td class="text-center"><strong>12-hours ahead</strong></td>
+            <td class="text-center"><strong>12.49 MW</strong></td>
+            <td class="text-center"><strong>23.41%</strong></td>
+            <td class="text-center"><strong>10.49 MW</strong></td>
+            <td class="text-center"><strong>28.42%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small text-muted">Table 2. LSTM performance across 1, 6, and 12 hour forecast timelines presented for heat wave and cold snap extreme weather scenarios in both RMSE and MAPE for academic literature comparison. Performance in line with production-viable range established for commercial building applications (Okotore, 2024).</p>
+
+    <p>This methodological rigor ensures our performance metrics provide reliable foundations for the portfolio optimization algorithms that follow. While our analysis uses RMSE for internal model comparison across weather scenarios, literature benchmarks typically report MAPE for cross-study comparison. Our 12-hour RMSE values of 23.41-28.42% correspond to forecast accuracy levels consistent with the 20-25% MAPE range established as production-viable for commercial building applications (Okotore, 2024), particularly given the extreme weather conditions tested.</p>
+
+    <p><strong>Technical Achievement:</strong> Our multi-cohort approach balances building-level accuracy with portfolio-level coordination, emphasizing relative demand patterns during extreme weather over absolute consumption.</p>
+
+    <p><strong>Integration with Optimization:</strong> The LSTM feeds into portfolio optimization by generating weather scenarios, forecasting 24-hour demand, detecting grid strain, and coordinating building responses for maximum impact.</p>
 
     <p class="mt-4"><a href="/projects/energy-recommendation/" class="btn btn-outline-primary">Back to overview</a></p>
-
-    <h5 class="mt-4">Problem Framing</h5>
-    <p>Short-term load forecasting and recommendation generation to reduce curtailment and improve renewable integration in smart grids. Objective: accurate horizon-H forecasts and explainable recommendations under policy and operational constraints.</p>
-
-    <h5>Data & Features</h5>
-    <ul>
-      <li>Signals: historical load (15–60 min cadence), weather (temperature, irradiance, wind speed), calendar (holiday, weekday/weekend), region identifiers.</li>
-      <li>Preprocessing: time alignment, missing-value imputation, outlier clipping, per-series z-normalization, sliding windows for supervised learning.</li>
-      <li>Feature set: lagged loads, rolling stats, exogenous weather forecasts, cyclical encodings (hour-of-day, day-of-week), seasonal indicators.</li>
-    </ul>
-
-    <h5>Modeling</h5>
-    <ul>
-      <li>Core: sequence-to-sequence LSTM with multi-horizon outputs; dropout and weight decay; Lookback L and horizon H tuned via CV.</li>
-      <li>Baselines: ARIMA/Prophet and gradient boosting (XGBoost/LightGBM) for benchmarking and ensembling.</li>
-      <li>Training: early stopping on validation RMSE/MAPE; stratified time-based CV; mixed precision for faster epochs.</li>
-    </ul>
-
-    <h5>Evaluation</h5>
-    <ul>
-      <li>Metrics: RMSE, MAE, MAPE; calibration plots; residual diagnostics by hour and temperature bands.</li>
-      <li>Robustness: stress tests with synthetic weather perturbations; ablation shows +X% error without irradiance features.</li>
-      <li>Results: LSTM improves RMSE vs baselines at all horizons; stable under mild covariate shift.</li>
-    </ul>
-
-    <h5>Serving & MLOps</h5>
-    <ul>
-      <li>Packaging: model artifacts versioned in registry; Dockerized FastAPI service exposes /forecast and /explain endpoints.</li>
-      <li>Orchestration: daily retraining job; feature freshness checks; drift detection with alerts.</li>
-      <li>Observability: request logs, latency SLOs, forecast error dashboards; canary deployments for updates.</li>
-    </ul>
-
-    <h5>Explainability</h5>
-    <ul>
-      <li>Global: SHAP for feature importance across horizons.</li>
-      <li>Local: attention/gradient-based attributions for scenario-specific recommendations.</li>
-    </ul>
-
-    <h5>Recommendation Logic</h5>
-    <ul>
-      <li>Rules combine forecasts with policy constraints to suggest actions (load shifting, storage dispatch, DR events).</li>
-      <li>Safe-guards: confidence thresholds and human-in-the-loop approval for operational changes.</li>
-    </ul>
-
-    <p class="small text-muted mt-3">Source: Final report insights for the smart grid energy management project <a href="https://docs.google.com/document/d/1drQi-2SAQqYeI9UvRmgKSdf-ZcRF5dTPt7z5NayEhRc/edit?tab=t.lo60klntyz4q#heading=h.toasgthfs9co">Google Doc</a>.</p>
   </div>
 
   <div class="col-lg-4">
