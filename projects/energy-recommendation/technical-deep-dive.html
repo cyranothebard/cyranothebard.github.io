@@ -1,0 +1,40 @@
+---
+layout: simple
+title: "Energy Recommendation System - Technical Deep-Dive"
+lang: en
+---
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/projects">Projects</a></li>
+    <li class="breadcrumb-item"><a href="/projects/energy-recommendation/">Energy Recommendation</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Technical Deep-Dive</li>
+  </ol>
+</nav>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <a href="/projects/energy-recommendation/management-perspective.html" class="me-2">Management</a>
+    <a href="/projects/energy-recommendation/product-strategy.html">Product</a>
+  </div>
+  <div>
+    <a href="/projekte/energie-empfehlungssystem/technische-details.html" class="btn btn-outline-secondary btn-sm">DE</a>
+  </div>
+</div>
+
+<h1 class="mb-3">Technical Deep-Dive</h1>
+<p class="lead">LSTM forecasting with weather features, modular data pipeline, and production-ready serving.</p>
+
+<h5>Architecture</h5>
+<ul>
+  <li>Data ingestion (load, weather, calendar); feature engineering and normalization.</li>
+  <li>LSTM with sequence length N, horizon H; early stopping and cross-validation.</li>
+  <li>Model registry and containerized serving via FastAPI; batch and on-demand inference.</li>
+</ul>
+
+<h5>Results</h5>
+<ul>
+  <li>RMSE improvements vs baseline ARIMA/XGBoost on validation sets.</li>
+  <li>Robustness under synthetic weather perturbations; ablation confirms feature utility.</li>
+</ul>
+
+<p class="mt-4"><a href="/projects/energy-recommendation/" class="btn btn-outline-primary">Back to overview</a></p>
