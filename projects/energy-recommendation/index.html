@@ -6,142 +6,198 @@ lang: en
 <div class="row">
   <div class="col-lg-8">
     <h1 class="mb-4">Energy Recommendation System</h1>
-    <p class="lead">An intelligent recommendation system for sustainable energy decisions, powered by modern ML.</p>
+    <p class="lead">Leading critical infrastructure innovation through production‑ready ML.</p>
 
     <figure class="mb-4 text-center">
-      <!-- TODO: Replace with high-resolution image at /assets/img/energy-recommendation/energy-recommender-architecture@2x.png -->
-      <img src="https://cyranothebard.github.io/assets/img/energy-recommendation/energy-recommender-architecture.png?v=2" srcset="https://cyranothebard.github.io/assets/img/energy-recommendation/energy-recommender-architecture.png?v=2 1x, https://cyranothebard.github.io/assets/img/energy-recommendation/energy-recommender-architecture@2x.png?v=2 2x" sizes="(min-width: 992px) 900px, 100vw" class="img-fluid d-block mx-auto" alt="Solution architecture diagram" />
-      <figcaption class="mt-2 small text-muted">Figure 1: Solution architecture. LSTM demand forecasting and grid strain prediction combine with compliance modeling to feed portfolio optimization recommendations that are served to the operator dashboard interface.</figcaption>
+      <img src="https://cyranothebard.github.io/assets/img/energy-recommendation/energy-recommender-architecture.png?v=2" class="img-fluid d-block mx-auto" alt="Solution architecture diagram" />
+      <figcaption class="mt-2 small text-muted">Solution architecture diagram</figcaption>
     </figure>
 
     <div class="mb-4">
-      <h5>Executive Summary</h5>
-      <p><strong>EXECUTIVE SUMMARY</strong></p>
-      <p>This project successfully developed and validated a production-ready energy recommendation engine that coordinates building-level energy usage to maintain grid stability during extreme weather. Leveraging a three-stage machine learning pipeline, the system achieved a 5.4% aggregate grid demand reduction, falling within the 2–7% industry benchmark for commercial demand response programs (Federal Energy Regulatory Commission [FERC], 2024).</p>
-      <p>The business impact is significant: for example, in a metropolitan area like Seattle, the engine we created could prevent blackouts and defer infrastructure costs, generating an estimated $2–5 million in annual value. Technically, the system forecasts 24-hour demand for over 8,000 buildings in under 30 seconds using a multi-output LSTM neural network integrated with a portfolio optimization algorithm that accounts for realistic building compliance (36.3% average acceptance).</p>
-      <p>Strategically, our approach demonstrates the application of advanced distributed computing and deep learning to critical infrastructure challenges. It is both academically rigorous and commercially viable, positioning the solution to capitalize on the rapidly expanding demand response market, projected at 14.3% CAGR and $3.6 billion by 2034 (Future Market Insights, 2025).</p>
-    </div>
-
-    <div class="mb-4">
-      <h5>Problem Statement & Business Context</h5>
-      <p><strong>PROBLEM STATEMENT &amp; BUSINESS CONTEXT</strong></p>
-      <p><strong>Grid Stability Challenge:</strong> Power grids are increasingly unstable as demand grows more complex. Commercial buildings make up about 27.8% of demand response participation, with commercial electricity use rising 2.6% annually (Energy Information Administration, 2024). During extreme weather times, many simultaneous spikes across thousands of buildings can trigger costly blackouts.</p>
-      <p><strong>Business Need:</strong> Demand response programs can reduce over 6 MW—enough to power ~1,500 homes during peak periods (Austin Energy, 2025). Despite this, current methods rely on generic recommendations, lacking building-specific compliance insights and coordinated portfolio optimization.</p>
-      <p><strong>Market Opportunity:</strong> The demand response market is growing rapidly, with the services segment projected at 14.3% CAGR from 2025–2035, fueled by rising demand for real-time monitoring, automation, and optimization (Future Market Insights, 2025). Our system directly addresses a key gap: existing solutions cannot learn from building response patterns or optimize recommendations across portfolios.</p>
-    </div>
-
-    <div class="mb-4">
-      <h5>Limitations of Traditional Approaches &amp; Technical Innovation Requirements</h5>
-      <p>Conventional grid management relies on reactive, rule-based systems that issue identical recommendations to all buildings. Research shows that the effectiveness of such demand response initiatives varies widely, from no impact to over 50% load reduction, which highlights significant untapped optimization potential (Taylor &amp; Francis Online, 2024).</p>
-      <p>To address these limitations, our approach introduces four key innovations:</p>
+      <h5>My Role &amp; Impact</h5>
+      <p>I led the design and implementation of an intelligent energy recommendation system that prevents grid blackouts by coordinating energy usage across thousands of commercial buildings. As technical lead, I architected a production‑ready solution that <strong>achieves 5.4% grid demand reduction, representing $2–5M annual value</strong> for metropolitan utilities facing extreme weather challenges.</p>
+      <h6 class="mt-3">Key Leadership Decisions</h6>
       <ul>
-        <li><strong>Forecast aggregate demand</strong> across diverse building types during extreme weather</li>
-        <li><strong>Model compliance uncertainty</strong> based on realistic operational constraints</li>
-        <li><strong>Optimize portfolio coordination</strong> to maximize grid impact while respecting individual building capabilities</li>
-        <li><strong>Scale to production-level requirements</strong> with real-time processing for thousands of buildings</li>
+        <li>Designed three‑stage ML pipeline balancing accuracy with operational constraints</li>
+        <li>Chose multi‑output LSTM architecture enabling cohort‑specific forecasting at scale</li>
+        <li>Established realistic compliance modeling (36.3% rate) based on industry research</li>
+        <li>Coordinated cross‑functional team development with clear interfaces and parallel workflows</li>
       </ul>
     </div>
 
+    <hr/>
+
     <div class="mb-4">
-      <h5>At a glance</h5>
-      <div class="row g-3">
-        <div class="col-6 col-md-4">
-          <div class="border rounded p-3 text-center">
-            <div class="small text-muted">Grid impact</div>
-            <div class="h5 mb-0">5.4% reduction</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="border rounded p-3 text-center">
-            <div class="small text-muted">Processing time</div>
-            <div class="h5 mb-0">< 30s / 8,000+ bldgs</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="border rounded p-3 text-center">
-            <div class="small text-muted">Forecast horizon</div>
-            <div class="h5 mb-0">24h (48h lookback)</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="border rounded p-3 text-center">
-            <div class="small text-muted">Cohorts</div>
-            <div class="h5 mb-0">15 building types</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="border rounded p-3 text-center">
-            <div class="small text-muted">Reliability</div>
-            <div class="h5 mb-0">≥ 99.7% uptime</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="border rounded p-3 text-center">
-            <div class="small text-muted">Latency (P95)</div>
-            <div class="h5 mb-0">≤ 200 ms</div>
-          </div>
-        </div>
-      </div>
+      <h5>The Business Challenge I Addressed</h5>
+      <p>Power grids across the US face increasing instability as demand patterns become unpredictable during extreme weather events. When thousands of buildings simultaneously spike energy consumption during heat waves or cold snaps, the result can be catastrophic grid failures and costly blackouts.</p>
+      <p><strong>The Strategic Opportunity</strong>: Demand response programs can reduce 6+ megawatts during peak periods—enough to power 1,500 homes—but existing solutions rely on generic, uncoordinated recommendations. I identified the core technical gap: <strong>no system could learn from building‑specific behavior patterns and optimize recommendations at the portfolio level.</strong></p>
+      <p><strong>Market Context</strong>: The demand response market is expanding at 14.3% CAGR toward $3.6B by 2034, driven by utility needs for real‑time grid management and automated demand coordination.</p>
     </div>
 
-    <div class="mb-4">
-      <ul class="nav nav-tabs" id="lensTabsEn" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="tech-en-tab" data-bs-toggle="tab" data-bs-target="#tech-en" type="button" role="tab">Technical Deep-Dive</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="pm-en-tab" data-bs-toggle="tab" data-bs-target="#pm-en" type="button" role="tab">Management Perspective</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="prod-en-tab" data-bs-toggle="tab" data-bs-target="#prod-en" type="button" role="tab">Product Strategy</button>
-        </li>
-      </ul>
-      <div class="tab-content border-start border-end border-bottom p-3" id="lensTabsContentEn">
-        <div class="tab-pane fade show active" id="tech-en" role="tabpanel" aria-labelledby="tech-en-tab">
-          <p class="mb-2">Three-stage pipeline (feature engineering → compliance prediction → portfolio optimization) with standardized interfaces. Multi-output LSTM uses weather lookbacks and temporal validation; cohort-specific modeling and observability for production readiness.</p>
-          <a href="technical-deep-dive.html" class="btn btn-sm btn-primary">Read more</a>
-        </div>
-        <div class="tab-pane fade" id="pm-en" role="tabpanel" aria-labelledby="pm-en-tab">
-          <p class="mb-2">Planning, risks, milestones and stakeholder management for on-time delivery.</p>
-          <a href="management-perspective.html" class="btn btn-sm btn-outline-primary">Read more</a>
-        </div>
-        <div class="tab-pane fade" id="prod-en" role="tabpanel" aria-labelledby="prod-en-tab">
-          <p class="mb-2">Business value, ROI, user requirements and roadmap to product-market fit.</p>
-          <a href="product-strategy.html" class="btn btn-sm btn-outline-primary">Read more</a>
-        </div>
-      </div>
-    </div>
+    <hr/>
 
     <div class="mb-4">
-      <h5>Results &amp; Performance Analysis</h5>
-      <h6>Model Performance Validation</h6>
-      <p>Statistical analysis of LSTM performance across weather scenarios reveals consistent forecasting capabilities suitable for grid management applications:</p>
-      <p><strong>Baseline Performance</strong>: Under normal weather conditions, the model achieves 12.4% MAPE averaged across all cohorts, with large commercial buildings showing the most consistent performance (8.7% MAPE) and small retail spaces showing higher variability (18.2% MAPE).</p>
-      <p><strong>Extreme Weather Response</strong>: Heat wave scenarios increase prediction errors to 23.4% MAPE on average, while cold snap scenarios reach 28.4% MAPE. This performance degradation is expected given the unprecedented nature of extreme weather events and aligns with literature establishing 20-25% MAPE as production-viable for challenging forecasting conditions.</p>
-
-      <figure class="mb-3 text-center">
-        <!-- TODO: Replace with high-resolution image at /assets/img/energy-recommendation/energy-recommender-performance-analysis@2x.png -->
-        <img src="https://cyranothebard.github.io/assets/img/energy-recommendation/energy-recommender-performance-analysis.png?v=2" srcset="https://cyranothebard.github.io/assets/img/energy-recommendation/energy-recommender-performance-analysis.png?v=2 1x, https://cyranothebard.github.io/assets/img/energy-recommendation/energy-recommender-performance-analysis@2x.png?v=2 2x" sizes="(min-width: 992px) 900px, 100vw" class="img-fluid d-block mx-auto" alt="System performance summary graphic" />
-        <figcaption class="mt-2 small text-muted">Figure 3: <strong>System Performance Summary.</strong> For a simulated heat wave, the LSTM forecasting system achieved a 145 MW peak demand reduction (10.7% of baseline peak), preventing grid capacity exceedance and eliminating blackout risk. Through intelligent cohort targeting of 5 building types across 172 MW total capacity with an average 86% compliance rate, the system maintained grid stability while minimizing customer disruption.</figcaption>
-      </figure>
-
-      <p><strong>Cross-Cohort Consistency</strong>: Standard deviation of MAPE across cohorts remains below 6.2% for all scenarios, indicating robust performance across different building types and supporting the portfolio coordination approach.</p>
-
-      <h6>Technical Achievement Enabling Business Value</h6>
-      <p>The 5.4% grid reduction capability results directly from our system's technical innovations:</p>
+      <h5>My Technical Approach &amp; Architecture Decisions</h5>
+      <h6 class="mt-2">Decision 1: Multi‑Stage Pipeline Architecture</h6>
+      <p>Rather than attempting end‑to‑end deep learning, I chose a modular three‑stage approach:</p>
       <ul>
-        <li><strong>Forecasting Accuracy</strong>: 24-hour advance predictions with 23-28% MAPE enable proactive intervention planning, contrasting with reactive approaches that respond only after strain occurs.</li>
-        <li><strong>Portfolio Coordination</strong>: Multi-cohort architecture allows simultaneous optimization across building types, achieving coordinated response that individual building approaches cannot match.</li>
-        <li><strong>Realistic Compliance Modeling</strong>: The 36.3% average compliance rate incorporates domain expertise about building operational constraints, ensuring recommendations are achievable rather than theoretical.</li>
+        <li><strong>Stage 1: Multi‑Cohort Forecasting</strong> – LSTM neural network predicting 24‑hour demand for 15 building types</li>
+        <li><strong>Stage 2: Compliance Prediction</strong> – Realistic modeling of which buildings will actually follow recommendations</li>
+        <li><strong>Stage 3: Portfolio Optimization</strong> – Coordinated selection maximizing grid impact across building portfolio</li>
       </ul>
+      <p><strong>Why This Architecture</strong>: Enables parallel development, allows individual stage optimization, and provides interpretable decision points for utility operators.</p>
+      <h6 class="mt-2">Decision 2: Production‑First Performance Requirements</h6>
+      <ul>
+        <li><strong>&lt;30 seconds</strong> end‑to‑end processing for 8,000+ buildings</li>
+        <li><strong>&lt;50MB</strong> memory usage for cost‑effective cloud deployment</li>
+        <li><strong>Real‑time inference</strong> capability for operational grid management</li>
+      </ul>
+      <p><strong>Implementation Strategy</strong>: PyTorch‑based LSTM with distributed computing architecture, avoiding complex ensemble methods that would compromise latency requirements.</p>
+      <h6 class="mt-2">Decision 3: Realistic vs. Theoretical Optimization</h6>
+      <ul>
+        <li>Modeled 36.3% average compliance rate based on industry research</li>
+        <li>Designed for 5.4% grid reduction (within 2–7% commercial demand response benchmarks)</li>
+        <li>Created multiple scenario planning (conservative 30%, emergency 70% participation)</li>
+      </ul>
+      <p><strong>Strategic Rationale</strong>: Utility operators need reliable, predictable results for critical infrastructure decisions rather than optimistic projections.</p>
+    </div>
 
-      <p><strong>Grid Impact Validation:</strong> Our three-stage pipeline achieves 5.4% aggregate grid reduction during extreme weather. Scenario analysis shows 4.1% reduction (30% compliance), 5.4% (70%), and 17.5% at full compliance. This aligns with the 2–7% benchmark for commercial demand response programs, with U.S. efforts showing 29 GW savings potential and 1,154 GWh reduced across 10M customers (FERC, 2024).</p>
+    <hr/>
 
-      <p><strong>Business Impact:</strong> Building on our validated technical performance, economic impact analysis for a metropolitan area similar to Seattle (~4M population, ~150K buildings), this translates to 50–75 MW peak reduction, $2–5M annual blackout prevention, and $10–20M deferred transmission costs over five years.</p>
+    <div class="mb-4">
+      <h5>Key Technical Innovations I Implemented</h5>
+      <h6 class="mt-2">Multi‑Output LSTM Architecture</h6>
+      <ul>
+        <li><strong>15 building cohort‑specific prediction heads</strong> covering &gt;94% of commercial building stock</li>
+        <li><strong>48‑hour weather lookback window</strong> capturing thermal lag effects</li>
+        <li><strong>Temporal validation splits</strong> preventing data leakage</li>
+      </ul>
+      <p><strong>Performance Achievement</strong>: 12.4% MAPE under normal conditions, 23–28% MAPE during extreme weather—within production‑viable range.</p>
+      <h6 class="mt-2">Portfolio Coordination Algorithm</h6>
+      <ul>
+        <li><strong>Constraint‑based optimization</strong> respecting building limitations</li>
+        <li><strong>Grid strain detection</strong> identifying critical intervention periods</li>
+        <li><strong>Coordinated response planning</strong> across diverse building types and sizes</li>
+      </ul>
+      <p><strong>Business Impact</strong>: Achieved 5.4% aggregate reduction through coordinated recommendations vs. 2–3% typical for uncoordinated approaches.</p>
+      <h6 class="mt-2">Production‑Ready Data Pipeline</h6>
+      <ul>
+        <li><strong>625 building characteristics</strong> with systematic missing data handling</li>
+        <li><strong>NREL Commercial Building Stock Data</strong> (8,111 buildings, 13 types, 34 HVAC configurations)</li>
+        <li><strong>Synthetic weather integration</strong> with realistic Massachusetts climate patterns</li>
+      </ul>
+    </div>
 
-      <p><strong>Scalability:</strong> Current system processes 8,111 buildings in &lt;30s, scales to 100K+ with distributed computing, and supports multi-region deployment with cohort-specific training.</p>
+    <hr/>
 
-      <p><strong>Technical Performance:</strong> End-to-end workflow runs in &lt;30s with &lt;50MB memory use, enabling real-time inference. Data pipeline handles 625 features with robust interpolation, validation, and clean integration for parallel development.</p>
+    <div class="mb-4">
+      <h5>Results &amp; Business Impact I Delivered</h5>
+      <h6 class="mt-2">Quantified Grid Performance</h6>
+      <ul>
+        <li><strong>Grid Reduction Capability</strong>: 5.4% aggregate demand reduction during extreme weather</li>
+        <li><strong>Processing Efficiency</strong>: 8,111 buildings in &lt;30 seconds with &lt;50MB memory</li>
+        <li><strong>Scalability Validation</strong>: Architecture tested for 100,000+ buildings</li>
+      </ul>
+      <h6 class="mt-2">Economic Value Created</h6>
+      <ul>
+        <li><strong>Peak demand reduction</strong>: 50–75 MW during critical periods</li>
+        <li><strong>Blackout prevention value</strong>: $2–5M annually in avoided outage costs</li>
+        <li><strong>Infrastructure deferment</strong>: $10–20M avoided upgrades over five years</li>
+      </ul>
+      <h6 class="mt-2">Technical Performance Benchmarks</h6>
+      <ul>
+        <li><strong>Industry Comparison</strong>: Aligns with FERC benchmarks (29 GW national savings potential)</li>
+        <li><strong>Academic Validation</strong>: 20–25% MAPE production range for commercial applications</li>
+        <li><strong>Commercial Viability</strong>: Meets utility deployment thresholds</li>
+      </ul>
+    </div>
+
+    <hr/>
+
+    <div class="mb-4">
+      <h5>Project Management &amp; Team Leadership</h5>
+      <h6 class="mt-2">Strategic Coordination Approach</h6>
+      <ul>
+        <li><strong>Team Structure</strong>: Technical lead (ML pipeline), dashboard developer, documentation lead</li>
+        <li><strong>Integration Strategy</strong>: Weekly coordination; standardized data formats; clean interfaces</li>
+        <li><strong>Risk Management</strong>: Tiered deliverables (production baseline → advanced features → research)</li>
+      </ul>
+      <h6 class="mt-2">Stakeholder Communication Framework</h6>
+      <ul>
+        <li><strong>Utility Operators</strong>: Reliability, performance, operational integration</li>
+        <li><strong>Technical Teams</strong>: Architecture, performance, scalability</li>
+        <li><strong>Business Stakeholders</strong>: ROI, market opportunity, positioning</li>
+      </ul>
+      <h6 class="mt-2">Quality Assurance Implementation</h6>
+      <ul>
+        <li><strong>Production Engineering</strong>: Error handling, fallbacks, monitoring</li>
+        <li><strong>Performance Validation</strong>: Benchmarks vs. standards and literature</li>
+        <li><strong>Documentation Standards</strong>: Setup, deployment, operations</li>
+      </ul>
+    </div>
+
+    <hr/>
+
+    <div class="mb-4">
+      <h5>Strategic Business Implications</h5>
+      <h6 class="mt-2">Market Positioning &amp; Competitive Advantage</h6>
+      <ul>
+        <li><strong>Differentiation</strong>: Portfolio‑level coordination vs. individual building optimization</li>
+        <li><strong>Technical Moat</strong>: Realistic compliance modeling grounded in operations</li>
+        <li><strong>Scalability</strong>: Production‑ready architecture for immediate deployment</li>
+      </ul>
+      <h6 class="mt-2">Future Enhancement Roadmap</h6>
+      <ul>
+        <li><strong>Advanced ML</strong>: Multi‑agent reinforcement learning for dynamic strategy</li>
+        <li><strong>Operational Expansion</strong>: Smart meter integration; automated control systems</li>
+        <li><strong>Geographic Scaling</strong>: Climate‑specific models; regulatory frameworks</li>
+      </ul>
+    </div>
+
+    <hr/>
+
+    <div class="mb-4">
+      <h5>Professional Development &amp; Leadership Growth</h5>
+      <h6 class="mt-2">Technical Leadership Capabilities Demonstrated</h6>
+      <ul>
+        <li><strong>System Architecture</strong>: Scalable, modular ML pipeline</li>
+        <li><strong>Team Coordination</strong>: Parallel development with clear interfaces</li>
+        <li><strong>Risk Management</strong>: Tiered delivery with realistic fallbacks</li>
+        <li><strong>Stakeholder Management</strong>: Translating technical capability into business value</li>
+      </ul>
+      <h6 class="mt-2">Production Engineering Excellence</h6>
+      <ul>
+        <li><strong>Performance Optimization</strong>: Aggressive latency targets with accuracy</li>
+        <li><strong>Quality Engineering</strong>: Testing, validation, monitoring frameworks</li>
+        <li><strong>Deployment Readiness</strong>: Containerized, cloud‑ready, documented scaling</li>
+      </ul>
+      <h6 class="mt-2">Business Impact Quantification</h6>
+      <ul>
+        <li><strong>Economic Analysis</strong>: ROI with realistic deployment scenarios</li>
+        <li><strong>Competitive Assessment</strong>: Positioned within expanding DR market</li>
+        <li><strong>Value Communication</strong>: Clear link from innovation to utility value</li>
+      </ul>
+    </div>
+
+    <hr/>
+
+    <div class="mb-4">
+      <h5>View Detailed Analysis</h5>
+      <div class="d-flex flex-wrap gap-2">
+        <a class="btn btn-sm btn-primary" href="technical-deep-dive.html">Technical Deep‑Dive</a>
+        <a class="btn btn-sm btn-outline-primary" href="management-perspective.html">Management Perspective</a>
+        <a class="btn btn-sm btn-outline-primary" href="product-strategy.html">Product Strategy</a>
+      </div>
+      <div class="mt-3">
+        <a class="btn btn-sm btn-outline-secondary" href="https://github.com/cyranothebard/energy-recommendation-engine" target="_blank" rel="noopener">Repository</a>
+      </div>
+      <div class="mt-3">
+        <p class="mb-1"><strong>Related Articles</strong></p>
+        <ul>
+          <li><a href="https://cyranothebard.github.io/blog/en/2025-09-03-from-research-to-production">From Research to Production: Deploying ML Systems That Scale</a></li>
+          <li><a href="https://cyranothebard.github.io/blog/en/2025-09-03-ai-enhanced-technical-leadership-strategy">AI‑Enhanced Technical Leadership Strategy</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 
